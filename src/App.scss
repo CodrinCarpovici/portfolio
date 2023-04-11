@@ -1,0 +1,89 @@
+/*STYLE VARIABLES*/
+
+/*TYPEFACES*/
+$title-font: 'Arimo', sans-serif;
+$primary-font:  'Oswald', sans-serif;
+
+/*TYPE SYSTEM*/
+$display-title-fz: 64px;
+$display-title-fw: bold;
+
+$sub-title-fz: 40px;
+$sub-title-fw: normal;
+
+$section-title-fz: 20px;
+$section-title-fw: bold;
+
+$lead-text-fz: 18px;
+$lead-text-fw: medium;
+
+$paragraph-fz: 16px;
+$paragraph-fw: normal;
+
+$highlight-text-fz: 16px;
+$highlight-text-fw: bold;
+
+/*COLORS*/
+$primary-black: #1E1E1E;
+$primary-blue: #00a6ff;
+$primary-green: #68ECB9;
+$primary-pink: #bf76ff;
+$primary-purple: #5448c8;
+
+$highlight-grey: #B7B7B7;
+$highlight-blue: #008AD4;
+$highlight-green: #22DE95;
+$secondary-pink: #E3C4FF;
+$secondary-purple: #9893CF;
+
+/*ROUNDED*/
+$rounded-16: 16px;
+$rounded-8: 8px;
+
+/*BOX SHADOW*/
+$button-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+$card-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+$img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+
+.App {
+  font-family: $primary-font;
+}
+
+/*NAVBAR*/
+.navbar {
+  background: $primary-black;
+  .logo {
+    max-width: 150px;
+    max-height: 55px;
+  }
+
+  .nav-link {
+    font-size: $section-title-fz;
+    font-weight: $section-title-fw;
+    color: $primary-blue;
+  }
+
+  .nav-link {
+    background-color: $primary-black;
+    float: left;
+    position: relative;
+    padding: 10px 20px;
+    overflow: hidden;
+  }
+
+  .nav-link::after {
+    background-color: $primary-blue;
+    content: "";
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    transition: width 0.35s ease 0s;
+    position: absolute;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
