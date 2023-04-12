@@ -10,7 +10,7 @@ const Card = (props) => {
         </div>
         <h2 className="top-left card-title">{props.title}</h2>
         <h3 className="center-left card-sub-title">{props.subTitle}</h3>
-        <button className="btn bottom-left case-button">Case Study</button>
+        <button className="button bottom-left case-button">Case Study</button>
       </div>
     </article>
   );
