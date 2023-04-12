@@ -52,6 +52,8 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 /*NAVBAR*/
 .navbar {
   background: $primary-black;
+  box-shadow: $card-shadow;
+
   .logo {
     max-width: 150px;
     max-height: 55px;
@@ -162,5 +164,39 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
       rgba(0, 166, 255, 1) 0%,
       rgba(191, 118, 255, 1) 100%
     );
+  }
+}
+
+//HEADER
+
+.header {
+  background: $primary-black;
+  padding: 20px;
+  height: calc(100vh - 80.94px);
+
+  .display-title {
+    font-family: $title-font;
+    font-size: $display-title-fz;
+    font-weight: $display-title-fw;
+    color: $primary-green;
+    text-shadow: $button-shadow;
+  }
+
+  .sub-title {
+    font-size: $sub-title-fz;
+    font-weight: $sub-title-fw;
+    color: $primary-green;
+    text-shadow: $button-shadow;
+  }
+
+  .about-btn {
+    font-size: $section-title-fz;
+    font-weight: $section-title-fw;
+    background: $primary-blue;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 7px;
+    box-shadow: $button-shadow;
   }
 }
