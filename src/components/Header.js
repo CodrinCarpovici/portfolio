@@ -1,4 +1,5 @@
 import React from "react";
+import downArrow from "../assets/icons/downArrow.png";
 
 const Header = () => {
   return (
@@ -8,6 +9,13 @@ const Header = () => {
         <h2 className="sub-title">WEB DEVELOPER</h2>
         <button className="about-btn">ABOUT ME</button>
       </div>
+      <button className="btn arrow-btn">
+        <img
+          src={downArrow}
+          className="arrow-icon img-fluid"
+          alt="down arrow"
+        />
+      </button>
     </header>
   );
 };

@@ -56,7 +56,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
   .logo {
     max-width: 150px;
-    max-height: 55px;
+    max-height: auto;
   }
 
   .nav-link {
@@ -168,19 +168,19 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 //HEADER
+.display-title {
+  font-family: $title-font;
+  font-size: $display-title-fz;
+  font-weight: $display-title-fw;
+  color: $primary-green;
+  text-shadow: $button-shadow;
+}
 
 .header {
   background: $primary-black;
   padding: 20px;
   height: calc(100vh - 80.94px);
-
-  .display-title {
-    font-family: $title-font;
-    font-size: $display-title-fz;
-    font-weight: $display-title-fw;
-    color: $primary-green;
-    text-shadow: $button-shadow;
-  }
+  position: relative;
 
   .sub-title {
     font-size: $sub-title-fz;
@@ -193,6 +193,105 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     font-size: $section-title-fz;
     font-weight: $section-title-fw;
     background: $primary-blue;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    padding: 7px;
+    box-shadow: $button-shadow;
+  }
+
+  //Down Button
+  .arrow-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: calc(100vw / 2 - 15px);
+    top: calc(100vh - 120px);
+    border-radius: 50%;
+    border: none;
+    background: $primary-green;
+  }
+}
+
+//PROJECTS
+.projects {
+  background: linear-gradient(0deg, $primary-blue 0%, $primary-black 56.34%);
+  padding: 20px;
+  justify-content: space-between;
+
+  .card-container {
+    position: relative;
+    max-width: 500px;
+    max-height: 250px;
+    overflow: hidden;
+    border-radius: $rounded-8;
+    box-shadow: $card-shadow;
+    margin-bottom: 20px;
+  }
+
+  .mask {
+    background: linear-gradient(
+      180deg,
+      $primary-blue 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .img-container {
+    position: relative;
+    max-width: 500px;
+    max-height: 250px;
+  }
+
+  .img-fluid {
+    object-fit: cover;
+    width: 100%; /* added to make sure the image fills the container */
+    height: 100%; /* added to make sure the image fills the container */
+  }
+
+  .top-left {
+    position: absolute;
+    top: 8px;
+    left: 5%;
+    z-index: 2;
+  }
+  .center-left {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    z-index: 2;
+  }
+  .bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 5%;
+    z-index: 2;
+  }
+
+  .card-title {
+    font-family: $primary-font;
+    font-weight: $display-title-fw;
+    font-size: $display-title-fz;
+    color: white;
+    text-shadow: $button-shadow;
+  }
+
+  .card-sub-title {
+    font-weight: $display-title-fw;
+    font-size: $sub-title-fz;
+    color: $primary-black;
+    text-shadow: $button-shadow;
+  }
+
+  .case-button {
+    font-size: $section-title-fz;
+    font-weight: $section-title-fw;
+    background: $primary-green;
     color: white;
     border-radius: 8px;
     border: none;
