@@ -3,12 +3,12 @@ import aboutBG from "../assets/images/technology.jpg";
 
 const About = () => {
   return (
-    <div className="about ">
+    <div className="about col p-0">
       <div className="mask"></div>
       <div className="img-container">
         <img src={aboutBG} alt="about background" className="img-fluid" />
       </div>
-      <div className="center-left p-3 mt-5">
+      <div className="center-left top-50 start-0 translate-middle-y px-5">
         <h3 className="about-title">About</h3>
         <p className="about-text">
           Hi, I'm Codrin, a self-taught Front End Developer with a passion for

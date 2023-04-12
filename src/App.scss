@@ -329,7 +329,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
   .center-left {
     position: absolute;
-    top: 0%;
     z-index: 2;
   }
   .about-title {
@@ -340,5 +339,33 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
   .about-bold {
     color: $primary-green;
+  }
+}
+
+//CONTACT FORM
+.form-container {
+  height: 100%;
+  background: $primary-black;
+  box-shadow: $card-shadow;
+}
+.contact-form {
+  position: relative;
+  height:450px;
+
+  .form-label {
+    font-weight: $section-title-fw;
+    font-size: $section-title-fz;
+    color: $primary-green;
+  }
+
+  .send-button {
+    font-size: $section-title-fz;
+    font-weight: $section-title-fw;
+    background: $primary-green;
+    color: white;
+    border-radius: 30px;
+    border: none;
+    padding: 7px;
+    box-shadow: $button-shadow;
   }
 }

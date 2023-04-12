@@ -6,9 +6,11 @@ const Contact = () => {
   return (
     <section className="contact-section">
       <h1 className="text-center display-title">Contact</h1>
-      <div className="d-flex flex-row justify-content-center">
-        <About />
-        <Form />
+      <div className="container">
+        <div className="row">
+          <About />
+          <Form />
+        </div>
       </div>
     </section>
   );
