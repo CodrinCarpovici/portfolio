@@ -18,7 +18,7 @@ const Form = () => {
   return (
     <div className="col p-0 form-container align-items-center">
       <div className="mx-auto col-10 col-md-8 col-lg-6">
-        <form onSubmit={formik.handleSubmit} className="contact-form col ">
+        <form onSubmit={formik.handleSubmit} className="contact-form col py-3">
           <div className="">
             <div className="mb-3">
               <label htmlFor="fullName" className="form-label">

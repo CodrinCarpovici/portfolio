@@ -47,6 +47,8 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
 .App {
   font-family: $primary-font;
+  margin: 0;
+  padding: 0;
 }
 
 /*NAVBAR*/
@@ -301,7 +303,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
 //CONTACT
 .contact-section {
-  background: $primary-black;
+  background: #252525;
   padding: 20px;
 }
 
@@ -319,7 +321,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
   .img-container {
     position: relative;
-    height: 450px;
+    height: 468px; //NEEDS FIXING
   }
 
   .img-fluid {
@@ -350,7 +352,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 .contact-form {
   position: relative;
-  height: 450px;
+  height: auto;
 
   .form-label {
     font-weight: $section-title-fw;
@@ -368,6 +370,11 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     padding: 7px;
     box-shadow: $button-shadow;
   }
+}
+
+//CASE STUDY
+.case-study {
+  background: $primary-black;
 }
 
 //FOOTER
