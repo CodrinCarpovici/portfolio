@@ -26,6 +26,7 @@ $highlight-text-fw: bold;
 /*COLORS*/
 $primary-black: #1e1e1e;
 $primary-black-mask: #1e1e1e7e;
+$navbar-black: #1e1e1ef1;
 $primary-blue: #00a6ff;
 $primary-green: #68ecb9;
 $primary-pink: #bf76ff;
@@ -54,7 +55,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
 /*NAVBAR*/
 .navbar {
-  background: $primary-black;
+  background: $navbar-black;
   box-shadow: $card-shadow;
 
   .logo {
@@ -69,7 +70,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
 
   .nav-link {
-    background-color: $primary-black;
     float: left;
     position: relative;
     padding: 10px 20px;
@@ -176,7 +176,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   font-size: $display-title-fz;
   font-weight: $display-title-fw;
   color: $primary-green;
-  text-shadow: $button-shadow;
 }
 
 .header {
@@ -215,8 +214,63 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     background: $primary-green;
   }
 
+  
+
+  // TITLE GLITCH ANIMATION
+  .display-title {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  .display-title span {
+    font-weight: bold;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    font-size: 4rem;
+    --stack-height: calc(100% / var(--stacks) - 1px);
+    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+    --clip-top: calc(var(--stack-height) * var(--index));
+    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+    clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+    animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+  }
+  
+  .display-title span:nth-child(odd) { --glitch-translate: 8px; }
+  .display-title span:nth-child(even) { --glitch-translate: -8px; }
+  
+  @keyframes stack {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+      text-shadow: -2px 3px 0 $primary-green, 2px -3px 0 $primary-blue;
+    };
+    60% {
+      opacity: 0.5;
+      transform: translateX(50%);
+    }
+    80% {
+      transform: none;
+      opacity: 1;
+      text-shadow: 2px -3px 0 $primary-green, -2px 3px 0 $primary-blue;
+    }
+    100% {
+      text-shadow: none;
+    }
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: -2px 3px 0 $primary-green, 2px -3px 0 $primary-green;
+      transform: translate(var(--glitch-translate));
+    }
+    2% {
+      text-shadow: 2px -3px 0 $primary-green, -2px 3px 0 $primary-blue;
+    }
+    4%, 100% {  text-shadow: none; transform: none; }
+  }
+
   @media (max-width: 768px) {
-    .display-title {
+    .display-title span {
       font-size: 40px;
     }
 
@@ -471,8 +525,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
   }
 
-
-
   .button-text {
     font-weight: bold;
     font-size: $section-title-fz;
@@ -527,7 +579,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     text-decoration: none;
   }
 
-  @media (max-width:768px) {
+  @media (max-width: 768px) {
     .logo {
       display: none;
     }
