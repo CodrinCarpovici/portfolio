@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/cgc-logo/defaultBG.png";
+import smallerlogo from "../assets/cgc-logo/favicon.png";
 import github from "../assets/icons/github.png";
 import linkedin from "../assets/icons/linkedin.png";
 
@@ -11,6 +12,9 @@ const Footer = () => {
           <div className="col">
             <a href="/">
               <img src={logo} alt="logo" className="logo" />
+            </a>
+            <a href="/">
+              <img src={smallerlogo} alt="smaller logo" className="smaller-logo" />
             </a>
           </div>
           <div className="col text-center">

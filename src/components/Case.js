@@ -67,7 +67,7 @@ const Case = (props) => {
           </div>
         </div>
       </div>
-      <div className="container mt-3">
+      <div className="container mt-3 pb-3">
         <h2 className="sub-title">Links To Website</h2>
         <h6 className="links-title">Live Site</h6>
         <a href={props.live} className="regular-text links">

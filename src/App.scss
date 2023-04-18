@@ -501,10 +501,17 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 //FOOTER
 .footer {
   background: $primary-black;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1);
 
   .logo {
     max-width: 150px;
     max-height: auto;
+  }
+
+  .smaller-logo {
+    max-width: 50px;
+    max-height: auto;
+    display: none;
   }
 
   .copyright {
@@ -518,5 +525,23 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     font-size: 16px;
     color: $primary-green;
     text-decoration: none;
+  }
+
+  @media (max-width:768px) {
+    .logo {
+      display: none;
+    }
+
+    .smaller-logo {
+      display: block;
+    }
+
+    .social-icon {
+      max-width: 40px;
+    }
+
+    .copyright {
+      font-size: 10px;
+    }
   }
 }
