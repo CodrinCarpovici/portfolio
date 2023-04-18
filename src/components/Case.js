@@ -5,35 +5,78 @@ import achievements from "../assets/images/achievements.jpg";
 const Case = (props) => {
   return (
     <section className="case-study">
-      <div className="mask"></div>
-      <img src={props.titleImg} alt="title" className="title-img"/>
-      <h1>{props.title}</h1>
-      <div className="container">
-        <h2>Project Overview</h2>
-        <p>{props.description}</p>
+      <div className="img-container">
         <div className="mask"></div>
-        <img src={goals} alt="goals" className="goals-img"/>
-        <h2>Goals</h2>
-        {props.goals.map((e) => (
-          <button key={`${props.title + e}`}>{e}</button>
-        ))}
-        <h2>Tech Stack</h2>
+        <img src={props.titleImg} alt="title" className="title-img img-fluid" />
+        <h1 className="main-title">{props.title}</h1>
+      </div>
+      <div className="container">
+        <h2 className="sub-title">Project Overview</h2>
+        <p className="regular-text">{props.description}</p>
+      </div>
+
+      <div className="img-container">
+        <div className="mask"></div>
+        <img src={goals} alt="goals" className="goals-img img-fluid" />
+        <div className="absolute-container">
+          <div className="container">
+            <h2 className="sub-title abs-sub-title">Goals</h2>
+            <div className="d-flex">
+              {props.goals.map((e) => (
+                <button
+                  key={`${props.title + e}`}
+                  className="button-text style-button mx-auto mt-4"
+                >
+                  {e}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <h2 className="sub-title">Tech Stack</h2>
         <ul>
           {props.tech.map((e) => (
-            <li className="tech" key={`${props.title + e}`}>{e}</li>
+            <li className="tech regular-text" key={`${props.title + e}`}>
+              {e}
+            </li>
           ))}
         </ul>
+      </div>
+      <div className="img-container">
         <div className="mask"></div>
-        <img src={achievements} alt="achievements" className="achievements-img"/>
-        <h2>Achievements</h2>
-        {props.achievements.map((e) => (
-          <button className="achievement" key={`${props.title + e}`}>{e}</button>
-        ))}
-        <h2>Links To Website</h2>
-        <h6>Live Site</h6>
-        <a href={props.live}>{props.live}</a>
-        <h6>Github</h6>
-        <a href={props.github}>{props.github}</a>
+        <img
+          src={achievements}
+          alt="achievements"
+          className="achievements-img img-fluid"
+        />
+        <div className="absolute-container">
+          <div className="container">
+            <h2 className="sub-title abs-sub-title">Achievements</h2>
+            <div className="d-flex">
+              {props.achievements.map((e) => (
+                <button
+                  className="achievement button-text style-button mx-auto mt-4"
+                  key={`${props.title + e}`}
+                >
+                  {e}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <h2 className="sub-title">Links To Website</h2>
+        <h6 className="links-title">Live Site</h6>
+        <a href={props.live} className="regular-text links">
+          {props.live}
+        </a>
+        <h6 className="links-title pt-3">Github</h6>
+        <a href={props.github} className="regular-text links">
+          {props.github}
+        </a>
       </div>
     </section>
   );
