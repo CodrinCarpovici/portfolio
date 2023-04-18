@@ -3,7 +3,7 @@ import defaultBG from "../assets/cgc-logo/defaultBG.png"
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg sticky-top">
+    <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
         <a className="navbar-brand" href="/">
           <img className="img-fluid logo" src={defaultBG} alt="logo"/>
