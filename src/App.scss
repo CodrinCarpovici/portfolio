@@ -25,6 +25,7 @@ $highlight-text-fw: bold;
 
 /*COLORS*/
 $primary-black: #1e1e1e;
+$primary-black-mask: #1e1e1e7e;
 $primary-blue: #00a6ff;
 $primary-green: #68ecb9;
 $primary-pink: #bf76ff;
@@ -242,11 +243,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
 
   .mask {
-    background: linear-gradient(
-      180deg,
-      $primary-blue 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    background: $primary-black-mask;
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -265,22 +262,11 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     height: 100%; /* added to make sure the image fills the container */
   }
 
-  .top-left {
-    position: absolute;
-    top: 8px;
-    left: 5%;
-    z-index: 2;
-  }
-  .center-left {
+  .centered {
     position: absolute;
     top: 50%;
-    left: 5%;
-    z-index: 2;
-  }
-  .bottom-left {
-    position: absolute;
-    bottom: 8px;
-    left: 5%;
+    transform: translateY(-50%);
+    left: 10px;
     z-index: 2;
   }
 
