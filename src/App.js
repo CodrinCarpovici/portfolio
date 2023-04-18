@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
-import Case from './components/Case';
+import CasePage from './components/CasePage';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Projects />
       <Contact />
-      <Case />
+      <CasePage />
       <Footer />
     </div>
   );
