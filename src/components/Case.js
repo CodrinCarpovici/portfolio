@@ -4,7 +4,7 @@ import achievements from "../assets/images/achievements.jpg";
 
 const Case = (props) => {
   return (
-    <section className="case-study">
+    <section className="case-study z1">
       <div className="img-container">
         <div className="mask"></div>
         <img src={props.titleImg} alt="title" className="title-img img-fluid" />

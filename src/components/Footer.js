@@ -6,7 +6,7 @@ import linkedin from "../assets/icons/linkedin.png";
 
 const Footer = () => {
   return (
-    <footer className="footer pt-3">
+    <footer className="footer pt-3 z1">
       <div className="container">
         <div className="row">
           <div className="col">

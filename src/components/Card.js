@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Card = (props) => {
   return (
     <motion.div
-      className="card-container"
+      className="card-container z1"
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
     >

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import SplitType from "split-type";
 import downArrow from "../assets/icons/downArrow.png";
 import { motion } from "framer-motion";
+import Particles from "./Particles";
 
 const Header = () => {
   const titleRef = useRef(null);
@@ -19,7 +20,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="header d-flex align-items-center">
+    <header className="header d-flex align-items-center z1">
+      <Particles />
       <div className="container main-offer">
         <div className="display-title" style={{ "--stacks": 3 }}>
           <span style={{ "--index": 0 }}>CODRIN G. CARPOVICI</span>
@@ -40,8 +42,8 @@ const Header = () => {
               delay: 1.7, // custom duration for opacity property only
             },
           }}
-          whileHover={{ delay: 0, scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ delay: 0, scale: 1.1, textShadow: "0px 0px 4px gray" }}
+          whileTap={{ scale: 0.95 }}
         >
           ABOUT ME
         </motion.button>

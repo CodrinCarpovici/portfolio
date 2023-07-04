@@ -11,7 +11,7 @@ const About = () => {
         <div className="container">
           <h3 className="about-title">About</h3>
           <p className="about-text">
-            Hi, I'm Codrin, a self-taught Front End Developer with a passion for
+            Hi, I'm Codrin, a Front End Developer with a passion for
             creating user friendly websites and applications. My primary
             technical skills are in&nbsp;
             <strong className="about-bold">

@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import { motion } from "framer-motion";
 
 const Form = () => {
   // Pass the useFormik() hook initial form values and a submit function that will
@@ -17,7 +18,10 @@ const Form = () => {
   });
   return (
     <div className="form-container align-items-center">
-      <form onSubmit={formik.handleSubmit} className="container contact-form px-5 py-3">
+      <form
+        onSubmit={formik.handleSubmit}
+        className="container contact-form px-5 py-3"
+      >
         <div className="mb-3">
           <label htmlFor="fullName" className="form-label">
             Full Name
@@ -76,9 +80,17 @@ const Form = () => {
         </div>
 
         <div className="text-center">
-          <button type="submit" className="send-button px-4">
+          <motion.button
+            type="submit"
+            className="send-button px-4"
+            whileHover={{
+              scale: 1.1,
+              textShadow: "0px 0px 4px gray",
+            }}
+            whileTap={{ scale: 0.95 }}
+          >
             Send
-          </button>
+          </motion.button>
         </div>
       </form>
     </div>
