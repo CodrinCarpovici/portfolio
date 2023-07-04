@@ -177,6 +177,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   font-size: $display-title-fz;
   font-weight: $display-title-fw;
   color: $primary-green;
+  cursor: default;
 }
 
 .header {
@@ -193,6 +194,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     text-shadow: $button-shadow;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     line-height: 3rem;
+    cursor: default;
   }
 
   .word .char {
@@ -419,7 +421,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 
 //PROJECTS
 .projects {
-  background: linear-gradient(0deg, $primary-blue 0%, $primary-black 56.34%);
+  background: $primary-black;
   padding: 20px;
   justify-content: space-between;
 
@@ -467,6 +469,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     transform: translateY(-50%);
     left: 10px;
     z-index: 2;
+    margin-left: 5px;
   }
 
   .card-title {
@@ -475,6 +478,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     font-size: $display-title-fz;
     color: white;
     text-shadow: $button-shadow;
+    cursor: default;
   }
 
   .card-sub-title {
@@ -483,7 +487,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     font-size: $sub-title-fz;
     color: $primary-black;
     text-shadow: $button-shadow;
-    
   }
 
   .case-button {
@@ -495,7 +498,6 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     border: none;
     padding: 7px;
     box-shadow: $button-shadow;
-    z-index: 2;
   }
 
   .case-button:hover {
