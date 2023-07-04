@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const colors = [
   "purple",
@@ -17,11 +18,19 @@ const colors = [
 
 const Particles = () => {
   return (
-    <div className="particles">
+    <motion.div
+      className="particles"
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duratioon: 0.5,
+        delay: 1.7,
+      }}
+    >
       {colors.map((color) => (
         <div className={color} key={color}></div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

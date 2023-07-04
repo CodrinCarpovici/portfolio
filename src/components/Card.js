@@ -21,6 +21,7 @@ const Card = (props) => {
             scale: 1.05,
             textShadow: "0px 0px 4px gray",
           }}
+          whileTap={{ scale: 0.95 }}
         >
           Case Study
         </motion.button>

@@ -4,6 +4,7 @@ import SplitType from "split-type";
 import downArrow from "../assets/icons/downArrow.png";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const titleRef = useRef(null);
@@ -22,7 +23,7 @@ const Header = () => {
   return (
     <header className="header d-flex align-items-center z1">
       <Particles />
-      <div className="container main-offer">
+      <div className="container main-offer z1">
         <div className="display-title" style={{ "--stacks": 3 }}>
           <span style={{ "--index": 0 }}>CODRIN G. CARPOVICI</span>
           <span style={{ "--index": 1 }}>CODRIN G. CARPOVICI</span>
@@ -57,11 +58,18 @@ const Header = () => {
           delay: 1.7,
         }}
       >
-        <img
-          src={downArrow}
-          className="arrow-icon img-fluid"
-          alt="down arrow"
-        />
+        <Link
+          to="projects-section"
+          smooth={true}
+          duration={500} 
+          offset={-81}
+        >
+          <img
+            src={downArrow}
+            className="arrow-icon img-fluid"
+            alt="down arrow"
+          />
+        </Link>
       </motion.button>
     </header>
   );

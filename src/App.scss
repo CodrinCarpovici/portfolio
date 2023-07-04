@@ -84,6 +84,8 @@ div::after {
   transform-origin: top;
   transition: all 5s linear 0s;
   z-index: 0;
+  --mouseX: 0;
+  --mouseY: 0;
 }
 
 @function random-num($min, $max) {
