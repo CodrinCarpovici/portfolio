@@ -30,7 +30,7 @@ const Header = () => {
         </h2>
         <button className="about-btn">ABOUT ME</button>
       </div>
-      <button className="button arrow-btn">
+      <button className="button down-arrow">
         <img
           src={downArrow}
           className="arrow-icon img-fluid"
