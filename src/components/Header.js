@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import SplitType from "split-type";
 import downArrow from "../assets/icons/downArrow.png";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const titleRef = useRef(null);
@@ -28,15 +29,38 @@ const Header = () => {
         <h2 ref={titleRef} className="sub-title" id="mainSubTitle">
           WEB DEVELOPER
         </h2>
-        <button className="about-btn">ABOUT ME</button>
+        <motion.button
+          className="about-btn"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0,
+            opacity: {
+              duration: 0.5,
+              delay: 1.7, // custom duration for opacity property only
+            },
+          }}
+          whileHover={{ delay: 0, scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+        >
+          ABOUT ME
+        </motion.button>
       </div>
-      <button className="button down-arrow">
+      <motion.button
+        className="button down-arrow"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duratioon: 0.5,
+          delay: 1.7,
+        }}
+      >
         <img
           src={downArrow}
           className="arrow-icon img-fluid"
           alt="down arrow"
         />
-      </button>
+      </motion.button>
     </header>
   );
 };

@@ -28,6 +28,7 @@ $primary-black: #1e1e1e;
 $primary-black-mask: #1e1e1e7e;
 $navbar-black: #1e1e1ef1;
 $primary-blue: #00a6ff;
+$primary-blue-mask: #00a6ffa1;
 $primary-green: #68ecb9;
 $primary-pink: #bf76ff;
 $primary-purple: #5448c8;
@@ -183,6 +184,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   padding: 20px;
   height: 100vh;
   position: relative;
+  overflow-x: hidden;
 
   #mainSubTitle {
     font-size: $sub-title-fz;
@@ -432,11 +434,19 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
   }
 
   .mask {
-    background: $primary-black-mask;
+    background: linear-gradient(to left, $primary-black-mask 50%, $primary-blue-mask 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
     position: absolute;
     z-index: 1;
     width: 100%;
     height: 100%;
+    pointer-events: none;
+  }
+
+  .card-container:hover .mask {
+    pointer-events: auto;
+    background-position: left;
   }
 
   .img-container {
@@ -473,6 +483,7 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     font-size: $sub-title-fz;
     color: $primary-black;
     text-shadow: $button-shadow;
+    
   }
 
   .case-button {
@@ -484,6 +495,11 @@ $img-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
     border: none;
     padding: 7px;
     box-shadow: $button-shadow;
+    z-index: 2;
+  }
+
+  .case-button:hover {
+    cursor: pointer;
   }
 
   @media (max-width: 768px) {
