@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar setOpenModal={setOpenModal}/>
       <Header setOpenModal={setOpenModal}/>
       <Projects />
       <CasePage />

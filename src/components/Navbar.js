@@ -1,7 +1,12 @@
 import React from "react";
 import defaultBG from "../assets/cgc-logo/defaultBG.png"
 
-const Navbar = () => {
+const Navbar = ({setOpenModal}) => {
+  const handleContactClick = (event) => {
+    event.preventDefault();
+    setOpenModal(true);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
@@ -33,8 +38,8 @@ const Navbar = () => {
                 Projects
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contact">
+            <li className="nav-item" onClick={handleContactClick}>
+              <a className="nav-link" href="">
                 Contact
               </a>
             </li>
