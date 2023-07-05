@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import Case from "./Case";
-import data from "./caseData";
+
 
 const CasePage = ({caseData}) => {
+  const caseRef = useRef(null);
+
+  useEffect(() => {
+    if (caseRef.current) {
+      const scrollOffset = caseRef.current.offsetTop - 81;
+      window.scrollTo({ top: scrollOffset, behavior: "smooth" });
+    }
+  }, []);
+
   return (
-    <section id="case-page">
+    <section className="case-page" ref={caseRef}>
         <Case
           id={`${caseData.title}`}
           key={caseData.title}
