@@ -44,7 +44,7 @@ const Header = ({setOpenModal}) => {
             },
           }}
           whileHover={{ delay: 0, scale: 1.1, textShadow: "0px 0px 4px gray" }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.95}}
 
           onClick={() => setOpenModal(true)}
         >

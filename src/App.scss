@@ -39,6 +39,8 @@ $highlight-green: #22de95;
 $secondary-pink: #e3c4ff;
 $secondary-purple: #9893cf;
 
+$light-blue: #2ab4ff;
+
 $primary-gradient: linear-gradient(
   90deg,
   rgba(0, 166, 255, 1) 0%,
@@ -387,6 +389,11 @@ $colors: (
     border: none;
     padding: 7px;
     box-shadow: $button-shadow;
+    transition: 0.5 ease-in-out;
+  }
+
+  .about-btn:hover {
+    background: $light-blue;
   }
 
   //Down Button
@@ -687,6 +694,7 @@ $colors: (
 
   .case-button:hover {
     cursor: pointer;
+    background: $highlight-green;
   }
 
   @media (max-width: 768px) {
@@ -790,6 +798,10 @@ $colors: (
   z-index: 3;
 }
 
+.closeBtn:hover {
+  color: $highlight-green;
+}
+
 //ABOUT
 .about {
   position: relative;
@@ -868,6 +880,10 @@ $colors: (
     border: none;
     padding: 7px;
     box-shadow: $button-shadow;
+  }
+
+  .send-button:hover {
+    background: $highlight-green;
   }
 }
 

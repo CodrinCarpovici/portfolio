@@ -31,7 +31,7 @@ const Contact = ({ open, onClose }) => {
                 className="closeBtn"
                 whileHover={{
                   scale: 1.1,
-                  textShadow: "0px 0px 4px gray",
+                  textShadow: "0px 0px 3px green",
                 }}
               >
                 X
