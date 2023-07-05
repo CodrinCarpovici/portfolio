@@ -60,7 +60,7 @@ const Header = ({setOpenModal}) => {
           delay: 1.7,
         }}
       >
-        <Link to="projects-section" smooth={true} duration={500} offset={-81}>
+        <Link to="projects-section" smooth={true} duration={100} offset={-81}>
           <img
             src={downArrow}
             className="arrow-icon img-fluid"
