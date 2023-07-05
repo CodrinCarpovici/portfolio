@@ -7,6 +7,7 @@ import Projects from './components/Projects';
 import CasePage from './components/CasePage';
 
 function App() {
+  
   return (
     <div className="App">
       <Navbar />

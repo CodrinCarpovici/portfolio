@@ -1,10 +1,28 @@
 import React from "react";
 import goals from "../assets/images/goals.jpg";
 import achievements from "../assets/images/achievements.jpg";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const Case = (props) => {
+  const { scrollYProgress } = useScroll();
+
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
   return (
-    <section className="case-study z1">
+    <motion.section
+      className="case-study z1"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.5,
+      }}
+    >
+      <motion.div className="progress-bar" style={{ scaleX }} />
+      {/*Come Back here */}
       <div className="img-container">
         <div className="mask"></div>
         <img src={props.titleImg} alt="title" className="title-img img-fluid" />
@@ -22,13 +40,29 @@ const Case = (props) => {
           <div className="container">
             <h2 className="sub-title abs-sub-title">Goals</h2>
             <div className="row button-container m-3">
-              {props.goals.map((e) => (
-                <button
+              {props.goals.map((e, i) => (
+                <motion.button
                   key={`${props.title + e}`}
                   className="button-text style-button col-md-auto mx-auto mt-3"
+                  initial={{ opacity: 0, translateY: 50 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{
+                    opacity: {
+                      duration: 0.5,
+                      delay: i * 0.5
+                    },
+                    translateY: {
+                      duration: 0.5,
+                      delay: i * 0.5,
+                    },
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: "0px 0px 4px gray",
+                  }}
                 >
                   {e}
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -55,13 +89,29 @@ const Case = (props) => {
           <div className="container">
             <h2 className="sub-title abs-sub-title">Achievements</h2>
             <div className="row button-container m-3">
-              {props.achievements.map((e) => (
-                <button
+              {props.achievements.map((e, i) => (
+                <motion.button
                   className="achievement button-text style-button col-md-auto mx-auto mt-3"
                   key={`${props.title + e}`}
+                  initial={{ opacity: 0, translateY: 50 }}
+                  animate={{ opacity: 1, translateY: 0 }}
+                  transition={{
+                    opacity: {
+                      duration: 0.5,
+                      delay: i * 0.5
+                    },
+                    translateY: {
+                      duration: 0.5,
+                      delay: i * 0.5,
+                    },
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    textShadow: "0px 0px 4px gray",
+                  }}
                 >
                   {e}
-                </button>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -78,7 +128,7 @@ const Case = (props) => {
           {props.github}
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

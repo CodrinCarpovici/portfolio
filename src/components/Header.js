@@ -5,6 +5,7 @@ import downArrow from "../assets/icons/downArrow.png";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
 import { Link } from "react-scroll";
+import Contact from "./Contact";
 
 const Header = () => {
   const titleRef = useRef(null);
@@ -48,6 +49,7 @@ const Header = () => {
         >
           ABOUT ME
         </motion.button>
+        <Contact />
       </div>
       <motion.button
         className="button down-arrow"
@@ -58,12 +60,7 @@ const Header = () => {
           delay: 1.7,
         }}
       >
-        <Link
-          to="projects-section"
-          smooth={true}
-          duration={500} 
-          offset={-81}
-        >
+        <Link to="projects-section" smooth={true} duration={500} offset={-81}>
           <img
             src={downArrow}
             className="arrow-icon img-fluid"
