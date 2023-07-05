@@ -5,16 +5,26 @@ import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Projects from './components/Projects';
 import CasePage from './components/CasePage';
+import { useState, useEffect } from 'react';
 
 function App() {
-  
+  const [openModal, setOpenModal] = useState(false);
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }, [openModal]);
+
   return (
     <div className="App">
       <Navbar />
-      <Header />
+      <Header setOpenModal={setOpenModal}/>
       <Projects />
-      <Contact />
       <CasePage />
+      <Contact open={openModal} onClose={() => setOpenModal(false)}/>
       <Footer />
     </div>
   );

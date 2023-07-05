@@ -5,9 +5,8 @@ import downArrow from "../assets/icons/downArrow.png";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
 import { Link } from "react-scroll";
-import Contact from "./Contact";
 
-const Header = () => {
+const Header = ({setOpenModal}) => {
   const titleRef = useRef(null);
 
   useEffect(() => {
@@ -46,10 +45,11 @@ const Header = () => {
           }}
           whileHover={{ delay: 0, scale: 1.1, textShadow: "0px 0px 4px gray" }}
           whileTap={{ scale: 0.95 }}
+
+          onClick={() => setOpenModal(true)}
         >
           ABOUT ME
         </motion.button>
-        <Contact />
       </div>
       <motion.button
         className="button down-arrow"
