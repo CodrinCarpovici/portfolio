@@ -7,6 +7,7 @@ import Projects from "./components/Projects";
 import CasePage from "./components/CasePage";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import data from "./components/caseData";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -32,9 +33,15 @@ function App() {
             </>
           }
         ></Route>
-      </Routes>
 
-      <CasePage />
+        {data.map((caseData) => (
+          <Route
+            key={caseData.title}
+            path={`/projects/${caseData.title}`}
+            element={<CasePage caseData={caseData} />}
+          />
+        ))}
+      </Routes>
       <Contact open={openModal} onClose={() => setOpenModal(false)} />
       <Footer />
     </div>

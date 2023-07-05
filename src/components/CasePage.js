@@ -2,22 +2,21 @@ import React from "react";
 import Case from "./Case";
 import data from "./caseData";
 
-const CasePage = () => {
+const CasePage = ({caseData}) => {
   return (
     <section id="case-page">
-      {data.map((data) => (
         <Case
-          key={data.title}
-          title={data.title}
-          titleImg={data.titleImg}
-          description={data.description}
-          goals={data.goals}
-          tech={data.tech}
-          achievements={data.achievements}
-          live={data.live}
-          github={data.github}
+          id={`${caseData.title}`}
+          key={caseData.title}
+          title={caseData.title}
+          titleImg={caseData.titleImg}
+          description={caseData.description}
+          goals={caseData.goals}
+          tech={caseData.tech}
+          achievements={caseData.achievements}
+          live={caseData.live}
+          github={caseData.github}
         />
-      ))}
     </section>
   );
 };

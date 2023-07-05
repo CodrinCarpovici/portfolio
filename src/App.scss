@@ -611,6 +611,10 @@ $colors: (
     margin-bottom: 20px;
   }
 
+  .card-container:hover {
+    cursor: default;
+  }
+
   .mask {
     background: linear-gradient(
         to left,
