@@ -30,29 +30,22 @@ const Navbar = ({ setOpenModal }) => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="nav-item">
-              <a
-                className="nav-link"
-                aria-current="page"
-                href="/"
-              >
+              <a className="nav-link" aria-current="page" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
               <Link
+                className="nav-link"
+                href="/projects"
+                data-bs-toggle="collapse" // Add this attribute
+                data-bs-target="#navbarNavDropdown" // Add this attribute
                 to="projects-section"
                 smooth={true}
                 duration={100}
                 offset={-81}
               >
-                <a
-                  className="nav-link"
-                  href="/projects"
-                  data-bs-toggle="collapse" // Add this attribute
-                  data-bs-target="#navbarNavDropdown" // Add this attribute
-                >
-                  Projects
-                </a>
+                Projects
               </Link>
             </li>
             <li className="nav-item" onClick={handleContactClick}>
