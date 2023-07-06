@@ -9,6 +9,8 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import data from "./components/caseData";
 
+//FIX Projects path
+
 function App() {
   const [openModal, setOpenModal] = useState(false);
 
@@ -29,7 +31,7 @@ function App() {
           element={
             <>
               <Header id="home" setOpenModal={setOpenModal} />
-              <Projects />
+              <Projects id="projects-section" />
             </>
           }
         ></Route>

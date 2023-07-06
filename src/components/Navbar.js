@@ -1,11 +1,26 @@
 import React from "react";
 import defaultBG from "../assets/cgc-logo/defaultBG.png";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
+//Still gotta fix projects link
 const Navbar = ({ setOpenModal }) => {
   const handleContactClick = (event) => {
     event.preventDefault();
     setOpenModal(true);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const sectionElement = document.getElementById(sectionId);
+
+    if (sectionElement) {
+      const yOffset = sectionId === "projects-section" ? -81 : 0;
+      const y =
+        sectionElement.getBoundingClientRect().top +
+        window.scrollY +
+        yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   return (
@@ -30,20 +45,19 @@ const Navbar = ({ setOpenModal }) => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav ms-auto mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/">
+              <Link
+                className="nav-link"
+                to="/"
+                onClick={() => scrollToSection("home")}
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
               <Link
                 className="nav-link"
-                href="/projects"
-                data-bs-toggle="collapse" // Add this attribute
-                data-bs-target="#navbarNavDropdown" // Add this attribute
-                to="projects-section"
-                smooth={true}
-                duration={100}
-                offset={-81}
+                to="/"
+                onClick={() => scrollToSection("projects-section")}
               >
                 Projects
               </Link>
