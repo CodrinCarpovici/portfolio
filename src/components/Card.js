@@ -16,7 +16,6 @@ const Card = (props) => {
         </div>
         <div className="centered">
           <h2 className="card-title">{props.title}</h2>
-          <h3 className="card-sub-title">{props.subTitle}</h3>
 
           <motion.button
             className="button case-button"

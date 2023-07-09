@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import data from "./cardData";
+import data from "./data";
 
 const Projects = () => {
   return (
@@ -9,9 +9,8 @@ const Projects = () => {
       {data.map((data) => (
         <Card
           key={data.title}
-          img={data.img}
+          img={data.titleImg}
           title={data.title}
-          subTitle={data.subTitle}
         />
       ))}
     </main>

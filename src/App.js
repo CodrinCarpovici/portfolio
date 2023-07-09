@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 import CasePage from "./components/CasePage";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import data from "./components/caseData";
+import data from "./components/data";
 
 //FIX Projects path
 
