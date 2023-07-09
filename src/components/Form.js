@@ -2,13 +2,20 @@ import React, { useRef } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
-import * as emailjs from 'emailjs-com';
+import * as emailjs from "emailjs-com";
+import ReCAPTCHA from "react-google-recaptcha";
 
 //FIX ENV
 const Form = () => {
   const form = useRef();
-  // Pass the useFormik() hook initial form values and a submit function that will
+  // Passing the useFormik() hook initial form values and a submit function that will
   // be called when the form is submitted
+  const recaptchaRef = useRef(null);
+  //Recaptcha
+  const handleCaptchaChange = (value) => {
+    formik.setFieldValue("captcha", value);
+  };
+
   const formik = useFormik({
     initialValues: {
       from_name: "", //user name
@@ -24,8 +31,21 @@ const Form = () => {
         .required("* Email field is required"),
       subject: Yup.string().required("* Subject field is required"),
       message: Yup.string().required("* Message field is required"),
+      captcha: Yup.string().required(
+        "* Please complete the reCAPTCHA challenge"
+      ),
     }),
-    onSubmit: (values, {resetForm}) => {
+    onSubmit: async (values, { resetForm }) => {
+      const recaptchaValue = await recaptchaRef.current.executeAsync();
+      if (!recaptchaValue) {
+        // Handle reCAPTCHA validation error
+        formik.setFieldError(
+          "captcha",
+          "Please complete the reCAPTCHA challenge"
+        );
+        return;
+      }
+
       console.log("values", values);
       emailjs
         .send(
@@ -129,6 +149,21 @@ const Form = () => {
             }`}
           >
             {formik.errors.message}
+          </div>
+        </div>
+
+        <div className="mb-3">
+          <ReCAPTCHA
+            ref={recaptchaRef} // Add this line
+            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // SITE KEY
+            onChange={handleCaptchaChange} // Add this line
+          />
+          <div
+            className={`expandable ${
+              formik.touched.captcha && formik.errors.captcha ? "show" : ""
+            }`}
+          >
+            {formik.errors.captcha}
           </div>
         </div>
 
