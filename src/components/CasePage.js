@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from "react";
-import Case from "./data";
+import Case from "./Case.js";
 
 
 const CasePage = ({caseData}) => {
