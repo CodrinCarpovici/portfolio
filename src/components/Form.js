@@ -173,7 +173,7 @@ const Form = () => {
         <div className="mb-3 text-center form-field">
           <ReCAPTCHA
             ref={recaptchaRef} // Add this line
-            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // SITE KEY
+            sitekey="6LeYqgsnAAAAACmZ7v8D-lGpsZg6O4p1pVMWBIzy" // SITE KEY
             onChange={handleCaptchaChange} // Add this line
             id="captcha"
             name="captcha"
