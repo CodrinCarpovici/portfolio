@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import * as emailjs from "emailjs-com";
 import ReCAPTCHA from "react-google-recaptcha";
+import Spinner from "./Spinner";
 
 //FIX ENV
 const Form = () => {
@@ -13,6 +14,8 @@ const Form = () => {
   const recaptchaRef = useRef(null);
   //Recaptcha
   const [submitted, setSubmitted] = useState(false); // State for submission status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleCaptchaChange = (value) => {
     formik.setFieldValue("captcha", value);
   };
@@ -38,6 +41,7 @@ const Form = () => {
     }),
     onSubmit: async (values, { resetForm }) => {
       const recaptchaValue = recaptchaRef.current.getValue();
+      setIsSubmitting(true);
 
       if (!recaptchaValue) {
         // Handle reCAPTCHA validation error
@@ -61,6 +65,7 @@ const Form = () => {
           resetForm();
           recaptchaRef.current.reset();
           setSubmitted(true);
+          setIsSubmitting(false);
         });
     },
   });
@@ -189,7 +194,7 @@ const Form = () => {
             Successfully Submitted! I'll be in touch.
           </div>
         )}
-        <div className="mb-3 text-center">
+        <div className="send-btn-container">
           <motion.button
             type="submit"
             className="send-button px-4"
@@ -199,7 +204,11 @@ const Form = () => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            Send
+            {isSubmitting ? (
+              <Spinner /> // Replace Spinner with the component or element representing the spinner
+            ) : (
+              "Send"
+            )}
           </motion.button>
         </div>
       </form>
