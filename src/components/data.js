@@ -28,7 +28,7 @@ const data = [
       "Great User Experience",
       "Easy to Reserve a Table",
     ],
-    live: "COMING SOON",
+    live: "https://codrincarpovici.github.io/projectcapstone/",
     github: "https://github.com/CodrinCarpovici/projectcapstone",
   },
   {
@@ -74,7 +74,7 @@ const data = [
     goals: ["FOLLOWS FIRM DESIGN", "CLEAN LANDING PAGE", "SEO OPTIMIZED", "MOBILE-FRIENLDY"],
     tech: ["Semantic HTML5", "CSS3"],
     achievements: [
-      "Landing Page matches Firm style",
+      "Landing Page matches business style",
       "Clean and Simple Design"
     ],
     live: "COMING SOON",
