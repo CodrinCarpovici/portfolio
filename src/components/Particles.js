@@ -24,7 +24,7 @@ const Particles = () => {
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duratioon: 0.5,
-        delay: 1.7,
+        delay: 2,
       }}
     >
       {colors.map((color) => (
