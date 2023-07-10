@@ -1,13 +1,16 @@
+import { lazy, Suspense } from "react";
 import "./App.scss";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import CasePage from "./components/CasePage";
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import data from "./components/data";
+import Loader from "./components/Loader";
+
+const Header = lazy(() => import("./components/Header"));
+const Projects = lazy(() => import("./components/Projects"));
+const CasePage = lazy(() => import("./components/CasePage"));
+const Footer = lazy(() => import("./components/Footer"));
 
 //FIX Projects path
 
@@ -29,10 +32,10 @@ function App() {
         <Route
           path="/"
           element={
-            <>
+            <Suspense fallback={<Loader />}>
               <Header id="home" setOpenModal={setOpenModal} />
               <Projects id="projects-section" />
-            </>
+            </Suspense>
           }
         ></Route>
 
@@ -40,12 +43,18 @@ function App() {
           <Route
             key={caseData.title}
             path={`/projects/${caseData.title}`}
-            element={<CasePage caseData={caseData} />}
+            element={
+              <Suspense fallback={<Loader />}>
+                <CasePage caseData={caseData} />
+              </Suspense>
+            }
           />
         ))}
       </Routes>
       <Contact open={openModal} onClose={() => setOpenModal(false)} />
-      <Footer setOpenModal={setOpenModal} />
+      <Suspense fallback={<Loader />}>
+        <Footer setOpenModal={setOpenModal} />
+      </Suspense>
     </div>
   );
 }

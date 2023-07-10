@@ -5,6 +5,7 @@ import downArrow from "../assets/icons/downArrow.png";
 import { motion } from "framer-motion";
 import Particles from "./Particles";
 import { Link } from "react-scroll";
+import Loader from "./Loader";
 
 const Header = ({setOpenModal}) => {
   const titleRef = useRef(null);
