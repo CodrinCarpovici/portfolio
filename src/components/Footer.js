@@ -13,7 +13,16 @@ const Footer = ({ setOpenModal }) => {
         <div className="row">
           <div className="col">
             <a href="/">
-              <img src={logo} alt="logo" className="logo" />
+              <motion.img
+                whileHover={{
+                  delay: 0,
+                  scale: 1.05,
+                  textShadow: "0px 0px 4px gray",
+                }}
+                src={logo}
+                alt="logo"
+                className="logo"
+              />
             </a>
             <a href="/">
               <img
