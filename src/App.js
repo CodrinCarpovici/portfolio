@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setOpenModal={setOpenModal} />
+      <Navbar setOpenModal={setOpenModal} onClose={() => setOpenModal(false)}/>
       <Routes>
         <Route
           path="/"

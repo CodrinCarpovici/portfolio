@@ -9,7 +9,7 @@ const About = () => {
 
       <div className="center-left text-start">
         <div className="container">
-          <h3 className="about-title">About</h3>
+          <h3 className="about-title pt-4">About</h3>
           <p className="about-text">
             Hi, I'm Codrin, a Front End Developer with a passion for
             creating user friendly websites and applications. My primary

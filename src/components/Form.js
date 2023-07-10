@@ -170,7 +170,7 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="mb-3 text-center form-field">
+        <div className="mb-3 text-center form-field captcha-container">
           <ReCAPTCHA
             ref={recaptchaRef} // Add this line
             sitekey="6LeYqgsnAAAAACmZ7v8D-lGpsZg6O4p1pVMWBIzy" // SITE KEY

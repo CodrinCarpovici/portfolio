@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 //Still gotta fix projects link
-const Navbar = ({ setOpenModal }) => {
+const Navbar = ({ setOpenModal, onClose }) => {
   const handleContactClick = (event) => {
     event.preventDefault();
     setOpenModal(true);
@@ -56,26 +56,42 @@ const Navbar = ({ setOpenModal }) => {
               <Link
                 className="nav-link"
                 to="/"
-                onClick={() => scrollToSection("home")}
+                onClick={() => {
+                  onClose();
+                  scrollToSection("home");
+                }}
               >
-                Home
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDropdown"
+                >
+                  Home
+                </span>
               </Link>
             </li>
             <li className="nav-item">
               <Link
                 className="nav-link"
                 to="/"
-                onClick={() => scrollToSection("projects-section")}
+                onClick={() => {
+                  onClose();
+                  scrollToSection("projects-section");
+                }}
               >
-                Projects
+                <span
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDropdown"
+                >
+                  Projects
+                </span>
               </Link>
             </li>
             <li className="nav-item" onClick={handleContactClick}>
               <a
                 className="nav-link"
                 href="/contact"
-                data-bs-toggle="collapse" // Add this attribute
-                data-bs-target="#navbarNavDropdown" // Add this attribute
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
               >
                 Contact
               </a>

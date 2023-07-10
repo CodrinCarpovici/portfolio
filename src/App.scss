@@ -422,6 +422,12 @@ $colors: (
     transform: rotateZ(45deg);
   }
 
+  @media screen and (max-width: 768px) {
+    .down-arrow {
+      top: calc(100vh - 95px);
+    }
+  }
+
   @keyframes jumpInfinite {
     0% {
       margin-top: 0;
@@ -771,6 +777,7 @@ $colors: (
 .modalBody {
   max-height: calc(100vh - 200px); /* Adjust the height as needed */
   overflow-y: auto;
+  pointer-events: auto;
 }
 
 .modalRight {
@@ -902,6 +909,7 @@ $colors: (
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
+    width: 100%;
   }
 
   .captcha-error {
@@ -975,6 +983,16 @@ $colors: (
   .links-title {
     font-weight: bold;
     color: $primary-blue;
+  }
+
+  @media screen and (max-width:768px) {
+    .links {
+      font-size: 14px;
+    }
+
+    .website-links-container {
+      overflow-x: hidden;
+    }
   }
 
   .absolute-container {
