@@ -878,11 +878,36 @@ $colors: (
     background: $highlight-green;
   }
 
+  .error {
+    border: 1px solid red;
+  }
+
   .expandable {
-    color: red;
+    color: #ff3636;
+    font-size: 14px;
+    text-align: right;
+    height: 16px;
+  }
+
+  .captcha {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .captcha-error {
+    color: #ff3636;
+    font-size: 14px;
+    height: 26px;
   }
 }
 
+.confirmation-message {
+  color: $primary-green;
+  font-weight: bold;
+  font-size: 14px;
+  height: 24px;
+}
 //CASE STUDY
 .case-study {
   background: $primary-black;

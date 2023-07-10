@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
@@ -12,6 +12,7 @@ const Form = () => {
   // be called when the form is submitted
   const recaptchaRef = useRef(null);
   //Recaptcha
+  const [submitted, setSubmitted] = useState(false); // State for submission status
   const handleCaptchaChange = (value) => {
     formik.setFieldValue("captcha", value);
   };
@@ -36,7 +37,8 @@ const Form = () => {
       ),
     }),
     onSubmit: async (values, { resetForm }) => {
-      const recaptchaValue = await recaptchaRef.current.executeAsync();
+      const recaptchaValue = recaptchaRef.current.getValue();
+
       if (!recaptchaValue) {
         // Handle reCAPTCHA validation error
         formik.setFieldError(
@@ -46,7 +48,7 @@ const Form = () => {
         return;
       }
 
-      console.log("values", values);
+      // console.log("values", values);
       emailjs
         .send(
           process.env.REACT_APP_FORMIK_SERVICE_ID,
@@ -57,9 +59,12 @@ const Form = () => {
         .then(() => {
           console.log("email sent");
           resetForm();
+          recaptchaRef.current.reset();
+          setSubmitted(true);
         });
     },
   });
+
   return (
     <div className="form-container align-items-center">
       <form
@@ -67,7 +72,7 @@ const Form = () => {
         onSubmit={formik.handleSubmit}
         className="container contact-form px-5 py-3"
       >
-        <div className="mb-3">
+        <div className="my-3 form-field">
           <label htmlFor="from_name" className="form-label">
             Full Name
           </label>
@@ -75,7 +80,9 @@ const Form = () => {
             id="from_name"
             name="from_name"
             type="text"
-            className="form-control"
+            className={`form-control ${
+              formik.touched.from_name && formik.errors.from_name ? "error" : ""
+            }`}
             placeholder="Full Name..."
             onChange={formik.handleChange}
             value={formik.values.from_name}
@@ -88,7 +95,7 @@ const Form = () => {
             {formik.errors.from_name}
           </div>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 form-field">
           <label htmlFor="reply_to" className="form-label">
             Email
           </label>
@@ -96,7 +103,9 @@ const Form = () => {
             id="reply_to"
             name="reply_to"
             type="email"
-            className="form-control"
+            className={`form-control ${
+              formik.touched.reply_to && formik.errors.reply_to ? "error" : ""
+            }`}
             placeholder="Email Address..."
             onChange={formik.handleChange}
             value={formik.values.reply_to}
@@ -109,7 +118,7 @@ const Form = () => {
             {formik.errors.reply_to}
           </div>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 form-field">
           <label htmlFor="subject" className="form-label">
             Subject
           </label>
@@ -117,7 +126,9 @@ const Form = () => {
             id="subject"
             name="subject"
             type="text"
-            className="form-control"
+            className={`form-control ${
+              formik.touched.subject && formik.errors.subject ? "error" : ""
+            }`}
             placeholder="Subject..."
             onChange={formik.handleChange}
             value={formik.values.subject}
@@ -130,7 +141,7 @@ const Form = () => {
             {formik.errors.subject}
           </div>
         </div>
-        <div className="mb-3">
+        <div className="mb-3 form-field">
           <label htmlFor="message" className="form-label">
             Message
           </label>
@@ -138,7 +149,9 @@ const Form = () => {
             id="message"
             name="message"
             type="text"
-            className="form-control"
+            className={`form-control ${
+              formik.touched.message && formik.errors.message ? "error" : ""
+            }`}
             placeholder="Type your message here..."
             onChange={formik.handleChange}
             value={formik.values.message}
@@ -152,14 +165,18 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="mb-3">
+        <div className="mb-3 text-center form-field">
           <ReCAPTCHA
             ref={recaptchaRef} // Add this line
             sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // SITE KEY
             onChange={handleCaptchaChange} // Add this line
+            id="captcha"
+            name="captcha"
+            className="captcha"
           />
+
           <div
-            className={`expandable ${
+            className={`captcha-error ${
               formik.touched.captcha && formik.errors.captcha ? "show" : ""
             }`}
           >
@@ -167,7 +184,12 @@ const Form = () => {
           </div>
         </div>
 
-        <div className="text-center">
+        {submitted && ( // Display the confirmation message if submitted is true
+          <div className="confirmation-message text-center mb-3">
+            Successfully Submitted! I'll be in touch.
+          </div>
+        )}
+        <div className="mb-3 text-center">
           <motion.button
             type="submit"
             className="send-button px-4"
