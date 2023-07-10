@@ -3,6 +3,7 @@ import Card from "./Card";
 import data from "./data";
 
 const Projects = () => {
+
   return (
     <main className="d-flex align-items-center flex-column projects" id="projects-section">
       <h1 className="display-title mb-4">PROJECTS</h1>
