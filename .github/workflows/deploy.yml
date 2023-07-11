@@ -1,0 +1,27 @@
+name: Daily Build and Deploy
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Schedule it to run every day at 04:00 UTC
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.16.1
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: npm run deploy
