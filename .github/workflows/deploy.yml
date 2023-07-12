@@ -23,5 +23,10 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Set Git Identity
+        run: |
+          git config user.email "gabriel_9729@yahoo.co.uk"
+          git config user.name "CodrinCarpovici"
+
       - name: Deploy
         run: npm run deploy
