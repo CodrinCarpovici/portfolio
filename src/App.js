@@ -12,7 +12,7 @@ const Projects = lazy(() => import("./components/Projects"));
 const CasePage = lazy(() => import("./components/CasePage"));
 const Footer = lazy(() => import("./components/Footer"));
 
-//FIX Projects path
+// Check location
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
